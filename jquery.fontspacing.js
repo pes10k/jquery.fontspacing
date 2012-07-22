@@ -78,7 +78,8 @@
 
     $.fn.fontSpacing = function (options) {
 
-        var chars_to_test = options.chars || ['ʔ', 'ɨ'];
+        var options = options || {},
+            chars_to_test = options.chars || ['ʔ', 'ɨ'];
 
         test_character_widths(chars_to_test);
 
