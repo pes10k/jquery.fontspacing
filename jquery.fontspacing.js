@@ -92,16 +92,11 @@
                 // The number of times that the high bit character
                 // we're looking for appears in the text of the
                 // current element.
-                var num_test_chars;
+                var num_test_chars,
+                    test_text = $this.text();
 
                 if (!character_renders_correctly[value]) {
-
-                    num_test_chars = substr_count(value, $this.text());
-
-                    while (num_test_chars--) {
-
-                        $this.append("<span class='font-spacing-correction'>&nbsp;</span>");
-                    }
+                    $this.text(test_text.split(value).join(value + ' '));
                 }
             });
         });
