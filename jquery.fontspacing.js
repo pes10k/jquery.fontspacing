@@ -1,3 +1,16 @@
+/**
+ * jQuery.fontspacing
+ *
+ * Corrects font spacing issues on older browsers for high bit
+ * charcters.
+ *
+ * @param object options
+ *   This plugin accepts a single configuration option, "chars"
+ *   that takes an array of characters to test for.
+ *
+ * @author Peter Snyder <snyderp@gmail.com>
+ * @link   https://github.com/snyderp/jquery.fontspacing
+ */
 (function ($) {
     "use strict";
 
