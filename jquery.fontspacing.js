@@ -2,7 +2,9 @@
  * jQuery.fontspacing
  *
  * Corrects font spacing issues on older browsers for high bit
- * charcters.
+ * charcters by padding strings with characters that old browsers
+ * render with 0 width with a space in them.  This makes for some
+ * symantic messiness, but correct rendering.
  *
  * @param object options
  *   This plugin accepts a single configuration option, "chars"
@@ -45,10 +47,9 @@
         // in, and insert it into the document.
         var test_span = $("<span />")
                 .css({
-                    "visibility" : "false",
                     "font-size" : "100%"
                 })
-                .prepend("body"),
+                .appendTo("body"),
             // store the set of characters we've already tested
             // into an easier to type var name, just to keep
             // this code below from being crazy looking...
@@ -96,10 +97,9 @@
                     test_text = $this.text();
 
                 if (!character_renders_correctly[value]) {
-                    $this.text(test_text.split(value).join(value + ' '));
+                    $this.html(test_text.split(value).join(value + '&nbsp;'));
                 }
             });
         });
     };
-
 }(jQuery));
