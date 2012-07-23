@@ -11,11 +11,13 @@ jQuery
 
 Usage
 ---
+`
 $("span.text-sections").fontSpacing({
     "chars" : ["a", "ʔ", 'ʟ'] // An array of characters you want to 
                               // test and correct font spacing for.
                               // defaults to ʔ and ɨ
 });
+`
 
 Author
 ---
