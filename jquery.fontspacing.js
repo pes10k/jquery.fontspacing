@@ -97,7 +97,7 @@
                     test_text = $this.text();
 
                 if (!character_renders_correctly[value]) {
-                    $this.html(test_text.split(value).join(value + '&nbsp;'));
+                    $this.html(test_text.replace(new RegExp("(" + value + ")[^\w&]", 'g'), "$1&nbsp;"));
                 }
             });
         });
