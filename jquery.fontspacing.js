@@ -80,6 +80,10 @@
         var options = options || {},
             chars_to_test = options.chars || ['ʔ', 'ɨ'];
 
+        // Test the character widths outside any loops,
+        // so we don't do expensive DOM-insert-then-measure
+        // operations more than once for each character
+        // we need to test in this page load.
         test_character_widths(chars_to_test);
 
         this.each(function () {
@@ -94,8 +98,14 @@
                 var num_test_chars,
                     test_text = $this.text();
 
+                // For each character that doesn't appear to get
+                // spacing in the current font / browser,
+                // insert an additional space into the word,
+                // right after the non-width-ed character,
+                // to give the apperance of the character getting
+                // one space worth of width. 
                 if (!character_renders_correctly[value]) {
-                    $this.html(test_text.replace(new RegExp("(" + value + ")([^\w&])", 'g'), "$1 $2"));
+                    $this.html(test_text.replace(new RegExp("(" + value + ")([^\w&])", 'g'), "$1&nbps;$2"));
                 }
             });
         });
