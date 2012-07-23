@@ -105,7 +105,7 @@
                 // to give the apperance of the character getting
                 // one space worth of width. 
                 if (!character_renders_correctly[value]) {
-                    $this.html(test_text.replace(new RegExp("(" + value + ")([^\w&])", 'g'), "$1&nbps;$2"));
+                    $this.html(test_text.replace(new RegExp("(" + value + ")([^\w&])", 'g'), "$1&nbsp;$2"));
                 }
             });
         });
