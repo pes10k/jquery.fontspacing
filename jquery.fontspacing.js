@@ -46,9 +46,7 @@
         // use to insert and test character widths
         // in, and insert it into the document.
         var test_span = $("<span />")
-                .css({
-                    "font-size" : "100%"
-                })
+                .css("font-size", "100%")
                 .appendTo("body"),
             // store the set of characters we've already tested
             // into an easier to type var name, just to keep
@@ -97,7 +95,7 @@
                     test_text = $this.text();
 
                 if (!character_renders_correctly[value]) {
-                    $this.html(test_text.replace(new RegExp("(" + value + ")[^\w&]", 'g'), "$1&nbsp;"));
+                    $this.html(test_text.replace(new RegExp("(" + value + ")([^\w&])", 'g'), "$1 $2"));
                 }
             });
         });
