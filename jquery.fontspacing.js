@@ -77,8 +77,9 @@
 
     $.fn.fontSpacing = function (options) {
 
-        var options = options || {},
-            chars_to_test = options.chars || ['ʔ', 'ɨ'];
+        var chars_to_test = (options && options.chars)
+            ? options.chars
+            : ['ʔ', 'ɨ'];
 
         // Test the character widths outside any loops,
         // so we don't do expensive DOM-insert-then-measure
